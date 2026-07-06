@@ -59,8 +59,8 @@ switch (opcion)
                 break;
 
             case 5:
-                printf("Función en desarrollo...\n");
-                break;
+              eliminarCancion(canciones, &cantidad);
+              break;
 
             case 6:
                 printf("Función en desarrollo...\n");

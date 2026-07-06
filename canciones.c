@@ -133,5 +133,33 @@ void actualizarCancion(Cancion canciones[], int n)
 
 void eliminarCancion(Cancion canciones[], int *n)
 {
-    printf("\nFuncion en desarrollo.\n");
+    char codigo[16];
+    int i, j;
+    int encontrado = 0;
+
+    printf("\n=== ELIMINAR CANCION ===\n");
+    printf("Ingrese el codigo: ");
+    scanf("%s", codigo);
+
+    for(i = 0; i < *n; i++)
+    {
+        if(strcmp(canciones[i].codigo, codigo) == 0)
+        {
+            for(j = i; j < *n - 1; j++)
+            {
+                canciones[j] = canciones[j + 1];
+            }
+
+            (*n)--;
+
+            printf("\nCancion eliminada correctamente.\n");
+            encontrado = 1;
+            break;
+        }
+    }
+
+    if(encontrado == 0)
+    {
+        printf("\nCancion no encontrada.\n");
+    }
 }
