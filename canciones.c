@@ -60,7 +60,34 @@ void listarCanciones(Cancion canciones[], int n)
 }
 void buscarCancion(Cancion canciones[], int n)
 {
-    printf("\nFuncion en desarrollo.\n");
+    char codigo[16];
+    int i;
+    int encontrado = 0;
+
+    printf("\n=== BUSCAR CANCION ===\n");
+    printf("Ingrese el codigo: ");
+    scanf("%s", codigo);
+
+    for(i = 0; i < n; i++)
+    {
+        if(strcmp(canciones[i].codigo, codigo) == 0)
+        {
+            printf("\nCodigo: %s\n", canciones[i].codigo);
+            printf("Titulo: %s\n", canciones[i].titulo);
+            printf("Clasificacion: %s\n", canciones[i].clasificacion);
+            printf("Compositor: %s\n", canciones[i].compositor);
+            printf("Artista: %s\n", canciones[i].artista);
+            printf("Duracion: %d segundos\n", canciones[i].duracion);
+
+            encontrado = 1;
+            break;
+        }
+    }
+
+    if(encontrado == 0)
+    {
+        printf("\nCancion no encontrada.\n");
+    }
 }
 
 void actualizarCancion(Cancion canciones[], int n)

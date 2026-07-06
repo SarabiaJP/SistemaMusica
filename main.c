@@ -1,11 +1,13 @@
 #include <stdio.h>
 #include "canciones.h"
+#include "archivo.h"
 
 int main()
 {
     Cancion canciones[MAX_CANCIONES];
     int cantidad = 0;
     int opcion;
+    //cargarCanciones(canciones, &cantidad);
 
     do
     {
@@ -28,11 +30,18 @@ int main()
         printf("14. Guardar cambios\n");
         printf("15. Salir\n");
         printf("-------------------------------------\n");
-        printf("Seleccione una opción: ");
-        scanf("%d", &opcion);
+        printf("seleccione una opción: ");
+      if (scanf("%d", &opcion) != 1)
+{
+    printf("Error al leer la opcion\n");
+    return 0;
+}
 
-        switch(opcion)
-        {
+printf("Opcion leida: %d\n", opcion);
+
+switch (opcion)
+ {   
+
             case 1:
                 registrarCancion(canciones, &cantidad);
                 break;
@@ -42,7 +51,7 @@ int main()
                 break;
 
             case 3:
-                printf("Función en desarrollo...\n");
+               buscarCancion(canciones, cantidad);
                 break;
 
             case 4:
@@ -86,7 +95,8 @@ int main()
                 break;
 
             case 14:
-                printf("Guardado en desarrollo...\n");
+                guardarCanciones(canciones, cantidad);
+                printf("Cambios guardados correctamente.\n");
                 break;
 
             case 15:
@@ -95,6 +105,7 @@ int main()
 
             default:
                 printf("\nOpción inválida.\n");
+                break;
         }
 
     } while(opcion != 15);

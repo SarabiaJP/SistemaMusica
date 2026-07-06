@@ -34,8 +34,34 @@ void guardarCanciones(Cancion canciones[], int n)
 
 void cargarCanciones(Cancion canciones[], int *n)
 {
-    // La implementaremos más adelante.
-    // Por ahora solo dejamos la función creada.
+    FILE *archivo;
+
+    archivo = fopen("canciones.csv", "r");
+
+    if (archivo == NULL)
+    {
+        *n = 0;
+        return;
+    }
+
+    char linea[200];
+
+    // Leer y descartar el encabezado
+    fgets(linea, sizeof(linea), archivo);
 
     *n = 0;
+
+    while (fscanf(archivo,
+                  "%[^,],%[^,],%[^,],%[^,],%[^,],%d\n",
+                  canciones[*n].codigo,
+                  canciones[*n].titulo,
+                  canciones[*n].clasificacion,
+                  canciones[*n].compositor,
+                  canciones[*n].artista,
+                  &canciones[*n].duracion) == 6)
+    {
+        (*n)++;
+    }
+
+    fclose(archivo);
 }
