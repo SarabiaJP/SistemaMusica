@@ -55,7 +55,7 @@ switch (opcion)
                 break;
 
             case 4:
-                printf("Función en desarrollo...\n");
+                actualizarCancion(canciones, cantidad);
                 break;
 
             case 5:
