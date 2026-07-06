@@ -163,3 +163,30 @@ void eliminarCancion(Cancion canciones[], int *n)
         printf("\nCancion no encontrada.\n");
     }
 }
+    void mostrarDuracion(Cancion canciones[], int n)
+    {
+    char codigo[16];
+    int i;
+    int encontrado = 0;
+    
+    printf("\n=== MOSTRAR DURACION ===\n");
+    printf("Ingrese el codigo: ");
+    scanf("%s", codigo);
+
+    for(i = 0; i < n; i++)
+    {
+        if(strcmp(canciones[i].codigo, codigo) == 0)
+        {
+            printf("\nTitulo: %s\n", canciones[i].titulo);
+            printf("Duracion: %d segundos\n", canciones[i].duracion);
+
+            encontrado = 1;
+            break;
+        }
+    }
+
+    if(encontrado == 0)
+    {
+        printf("\nCancion no encontrada.\n");
+    } 
+    }

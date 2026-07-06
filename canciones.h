@@ -19,5 +19,6 @@ void listarCanciones(Cancion canciones[], int n);
 void buscarCancion(Cancion canciones[], int n);
 void actualizarCancion(Cancion canciones[], int n);
 void eliminarCancion(Cancion canciones[], int *n);
+void mostrarDuracion(Cancion canciones[], int n);
 
 #endif
