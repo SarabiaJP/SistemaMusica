@@ -191,6 +191,7 @@ void eliminarCancion(Cancion canciones[], int *n)
     } 
     }
 
+
 void mostrarTiempoTotal(Cancion canciones[], int n) {
     if (n == 0) {
         printf("No hay canciones registradas.\n");
@@ -242,4 +243,105 @@ void mostrarDuracionPromedio(Cancion canciones[], int n) {
     }
     double promedio = (double)total / n;
     printf("Duración promedio: %.2f segundos\n", promedio);
+}
+void cantidadPorClasificacion(Cancion canciones[], int n) {
+    if (n == 0) {
+        printf("No hay canciones registradas.\n");
+        return;
+    }
+
+    char unicas[MAX_CANCIONES][30];
+    int conteos[MAX_CANCIONES] = {0};
+    int totalUnicas = 0;
+
+    for (int i = 0; i < n; i++) {
+        int encontrado = -1;
+        for (int j = 0; j < totalUnicas; j++) {
+            if (strcmp(canciones[i].clasificacion, unicas[j]) == 0) {
+                encontrado = j;
+                break;
+            }
+        }
+        if (encontrado != -1) {
+            conteos[encontrado]++;
+        } else {
+            strcpy(unicas[totalUnicas], canciones[i].clasificacion);
+            conteos[totalUnicas] = 1;
+            totalUnicas++;
+        }
+    }
+
+    printf("\n--- Cantidad de canciones por Clasificación ---\n");
+    for (int i = 0; i < totalUnicas; i++) {
+        printf("%s: %d canción(es)\n", unicas[i], conteos[i]);
+    }
+}
+
+void clasificacionMasCanciones(Cancion canciones[], int n) {
+    if (n == 0) {
+        printf("No hay canciones registradas.\n");
+        return;
+    }
+
+    char unicas[MAX_CANCIONES][30];
+    int conteos[MAX_CANCIONES] = {0};
+    int totalUnicas = 0;
+
+    for (int i = 0; i < n; i++) {
+        int encontrado = -1;
+        for (int j = 0; j < totalUnicas; j++) {
+            if (strcmp(canciones[i].clasificacion, unicas[j]) == 0) {
+                encontrado = j;
+                break;
+            }
+        }
+        if (encontrado != -1) {
+            conteos[encontrado]++;
+        } else {
+            strcpy(unicas[totalUnicas], canciones[i].clasificacion);
+            conteos[totalUnicas] = 1;
+            totalUnicas++;
+        }
+    }
+
+    int indiceMax = 0;
+    for (int i = 1; i < totalUnicas; i++) {
+        if (conteos[i] > conteos[indiceMax]) {
+            indiceMax = i;
+        }
+    }
+    printf("Clasificación con más canciones: %s (%d canciones)\n", unicas[indiceMax], conteos[indiceMax]);
+}
+
+void tiempoTotalPorClasificacion(Cancion canciones[], int n) {
+    if (n == 0) {
+        printf("No hay canciones registradas.\n");
+        return;
+    }
+
+    char unicas[MAX_CANCIONES][30];
+    int tiempos[MAX_CANCIONES] = {0};
+    int totalUnicas = 0;
+
+    for (int i = 0; i < n; i++) {
+        int encontrado = -1;
+        for (int j = 0; j < totalUnicas; j++) {
+            if (strcmp(canciones[i].clasificacion, unicas[j]) == 0) {
+                encontrado = j;
+                break;
+            }
+        }
+        if (encontrado != -1) {
+            tiempos[encontrado] += canciones[i].duracion;
+        } else {
+            strcpy(unicas[totalUnicas], canciones[i].clasificacion);
+            tiempos[totalUnicas] = canciones[i].duracion;
+            totalUnicas++;
+        }
+    }
+
+    printf("\n--- Tiempo total por Clasificación ---\n");
+    for (int i = 0; i < totalUnicas; i++) {
+        printf("%s: %d segundos\n", unicas[i], tiempos[i]);
+    }
 }

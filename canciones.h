@@ -25,5 +25,9 @@ void mostrarTiempoTotal(Cancion canciones[], int *n);
 void mostrarCancionMasLarga(Cancion canciones[], int n);
 void mostrarCancionMasCorta(Cancion canciones[], int n);
 void mostrarDuracionPromedio(Cancion canciones[], int n);
+// Funciones de analisis por clasificacion
+void cantidadPorClasificacion(Cancion canciones[], int *n);
+void clasificacionMasCanciones(Cancion canciones[], int n);
+void tiempoTotalPorClasificacion(Cancion canciones[], int n);
 
 #endif
