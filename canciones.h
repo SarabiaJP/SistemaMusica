@@ -20,5 +20,10 @@ void buscarCancion(Cancion canciones[], int n);
 void actualizarCancion(Cancion canciones[], int n);
 void eliminarCancion(Cancion canciones[], int *n);
 void mostrarDuracion(Cancion canciones[], int n);
+// Funciones de estadisticas de duracion 
+void mostrarTiempoTotal(Cancion canciones[], int *n);
+void mostrarCancionMasLarga(Cancion canciones[], int n);
+void mostrarCancionMasCorta(Cancion canciones[], int n);
+void mostrarDuracionPromedio(Cancion canciones[], int n);
 
 #endif

@@ -190,3 +190,56 @@ void eliminarCancion(Cancion canciones[], int *n)
         printf("\nCancion no encontrada.\n");
     } 
     }
+
+void mostrarTiempoTotal(Cancion canciones[], int n) {
+    if (n == 0) {
+        printf("No hay canciones registradas.\n");
+        return;
+    }
+    int total = 0;
+    for (int i = 0; i < n; i++) {
+        total += canciones[i].duracion;
+    }
+    printf("Tiempo total de reproducción: %d segundos (%d min y %d seg)\n", total, total / 60, total % 60);
+}
+
+void mostrarCancionMasLarga(Cancion canciones[], int n) {
+    if (n == 0) {
+        printf("No hay canciones registradas.\n");
+        return;
+    }
+    int indiceMax = 0;
+    for (int i = 1; i < n; i++) {
+        if (canciones[i].duracion > canciones[indiceMax].duracion) {
+            indiceMax = i;
+        }
+    }
+    printf("Canción más larga: %s - %s (%d segundos)\n", canciones[indiceMax].titulo, canciones[indiceMax].artista, canciones[indiceMax].duracion);
+}
+
+void mostrarCancionMasCorta(Cancion canciones[], int n) {
+    if (n == 0) {
+        printf("No hay canciones registradas.\n");
+        return;
+    }
+    int indiceMin = 0;
+    for (int i = 1; i < n; i++) {
+        if (canciones[i].duracion < canciones[indiceMin].duracion) {
+            indiceMin = i;
+        }
+    }
+    printf("Canción más corta: %s - %s (%d segundos)\n", canciones[indiceMin].titulo, canciones[indiceMin].artista, canciones[indiceMin].duracion);
+}
+
+void mostrarDuracionPromedio(Cancion canciones[], int n) {
+    if (n == 0) {
+        printf("No hay canciones registradas.\n");
+        return;
+    }
+    int total = 0;
+    for (int i = 0; i < n; i++) {
+        total += canciones[i].duracion;
+    }
+    double promedio = (double)total / n;
+    printf("Duración promedio: %.2f segundos\n", promedio);
+}
