@@ -67,31 +67,31 @@ switch (opcion)
                break;
 
             case 7:
-                printf("Función en desarrollo...\n");
+                mostrarTiempoTotal(canciones, cantidad);
                 break;
 
             case 8:
-                printf("Función en desarrollo...\n");
+                mostrarCancionMasLarga(canciones, cantidad);
                 break;
 
             case 9:
-                printf("Función en desarrollo...\n");
+                mostrarCancionMasCorta(canciones, cantidad);
                 break;
 
             case 10:
-                printf("Función en desarrollo...\n");
+                cantidadPorClasificacion(canciones, cantidad);
                 break;
 
             case 11:
-                printf("Función en desarrollo...\n");
+                mostrarDuracionPromedio(canciones, cantidad);
                 break;
 
             case 12:
-                printf("Función en desarrollo...\n");
+                clasificacionMasCanciones(canciones, cantidad);
                 break;
 
             case 13:
-                printf("Función en desarrollo...\n");
+                tiempoTotalPorClasificacion(canciones, cantidad);
                 break;
 
             case 14:
